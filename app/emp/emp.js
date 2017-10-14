@@ -9,6 +9,12 @@ angular.module('myApp.emp', ['ngRoute'])
   });
 }])
 
-.controller('EmpCtrl', [function() {
-
+.controller('EmpCtrl', ['$scope',function($scope) {
+    $scope.myNewList = [{
+      "name":"Linipaul",
+      "tag":"Developer One"
+    },{
+      "name":"Praveen",
+      "tag":"Developer Two"
+    }]
 }]);
