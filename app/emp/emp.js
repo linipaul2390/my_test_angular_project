@@ -9,7 +9,7 @@ angular.module('myApp.emp', ['ngRoute'])
   });
 }])
 
-.controller('EmpCtrl', ['$scope',function($scope) {
+.controller('EmpCtrl', ['$scope','empService',function($scope, empService) {
     $scope.myNewList = [{
       "name":"Linipaul",
       "tag":"Developer One",
@@ -18,5 +18,9 @@ angular.module('myApp.emp', ['ngRoute'])
       "name":"Praveen",
       "tag":"Developer Two",
       "designation":"Front End Developer"
-    }]
+    }];
+    empService.getTasks()
+      .then(function(response){
+        $scope.tasks = response.data;
+      });
 }]);

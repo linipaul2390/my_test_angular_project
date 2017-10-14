@@ -1,9 +1,14 @@
 <h2>Employee List</h2>
-
+<input type="text" name="" value="" ng-model="empList">
 <ul>
-  <li ng-repeat="emp in myNewList">
+  <li ng-repeat="emp in myNewList | filter:empList">
     <div>
       {{emp.name}} , {{emp.tag}}, {{emp.designation}}
+      <ul>
+        <li ng-repeat="task in tasks.tasks" ng-if="task.assign === emp.name">
+          {{task.label}}
+        </li>
+      </ul>
     </div>
   </li>
 </ul>
